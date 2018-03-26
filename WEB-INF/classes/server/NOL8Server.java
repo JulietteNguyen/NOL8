@@ -24,8 +24,8 @@ public class NOL8Server {
 
 	//méthodes de IDatabase
 
-	public ArrayList<Utilisateur> getAllUsers(){
-		return data.getAllUsers();
+	public ArrayList<Utilisateur> getAllUsersByProject(int idProjet){
+		return data.getAllUsersByProject(idProjet);
 	} 
 
 	public ArrayList<Project> getAllProjects() {

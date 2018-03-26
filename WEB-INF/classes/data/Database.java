@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
-
-import com.sun.corba.se.impl.javax.rmi.CORBA.Util;
 
 import server.IDatabase;
 import server.NOL8Server;
@@ -37,7 +34,7 @@ public class Database implements IDatabase {
 	@Override
 	public Utilisateur getUser(String mail, String password) {
 		try{
-			PreparedStatement req = connection.prepareStatement("SELECT * FROM utilisateur WHERE mail = ? AND mdp = ?");
+			PreparedStatement req = connection.prepareStatement("SELECT * FROM \"Utilisateur\" WHERE mail = ? AND mdp = ?");
 			req.setString(1, mail);
 			req.setString(2, password);
 			ResultSet res = req.executeQuery();
@@ -55,19 +52,20 @@ public class Database implements IDatabase {
 	}
 
 	@Override
-	public ArrayList<Utilisateur> getAllUsersByProject(int idProject) {
+	public ArrayList<Utilisateur> getAllUsersByProject(int idProjet) {
 		ArrayList<Utilisateur> liste = new ArrayList<Utilisateur>();
 		try{
-			PreparedStatement req = connection.prepareStatement("SELECT * FROM UTILISATEUR INNER JOIN TRAVAILLESUR ON UTILISATEUR.iduser = ?");
-			req.setInt(1, idProject);
+			PreparedStatement req = connection.prepareStatement("SELECT * FROM \"Utilisateur\" as \"u\", \"TravailleSur\" as \"t\" WHERE u.\"idUser\" = t.\"idUser\" AND t.\"idProjet\" = ?");
+			req.setInt(1, idProjet);
 			ResultSet res = req.executeQuery();
-			
 			while(res.next()){			
-				Utilisateur user = new Utilisateur(res.getInt("idUser"), res.getString("pseudo"), res.getString("mail"), res.getString("mdp"));
+				liste.add(new Utilisateur(res.getInt("idUser"), res.getString("pseudo"), res.getString("mail"), res.getString("mdp")));
 			}
+			return liste;
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+		return liste;
 	}
 
 	@Override
