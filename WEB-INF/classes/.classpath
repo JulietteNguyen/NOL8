@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path=""/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/aurel/Desktop/tomcatWeb/webapps/NOL8Server/WEB-INF/lib/postgresql-42.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-7.0.35/webapps/NOL8Server/WEB-INF/lib/postgresql-42.2.1.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>

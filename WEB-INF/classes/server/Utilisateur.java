@@ -3,11 +3,13 @@ package server;
 public class Utilisateur {
 
 	private int idUtilisateur;
+	private String login;
 	private String mail;
 	private String mdp;
 	
-	public Utilisateur(int id, String mail, String mdp){
+	public Utilisateur(int id, String login, String mail, String mdp){
 		this.idUtilisateur=id;
+		this.login=login;
 		this.mail=mail;
 		this.mdp=mdp;
 		
