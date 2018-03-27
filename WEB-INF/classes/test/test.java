@@ -24,6 +24,9 @@ public class test {
 		
 		while(res.next()){
 			System.out.println(res.getString("pseudo"));
+			String trim = "     trim  ";
+			String str = trim.trim();
+			System.out.println(str);
 		}
 		
 		

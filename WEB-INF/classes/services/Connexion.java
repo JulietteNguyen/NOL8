@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import server.NOL8Server;
-import server.Utilisateur;
-
 public class Connexion extends HttpServlet{	
 
 
@@ -18,22 +15,39 @@ public class Connexion extends HttpServlet{
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		response.setContentType("text/html");
+		
 		PrintWriter out = response.getWriter();
 
 
-		String mail = request.getParameter("mail");
-		String mdp = request.getParameter("mdp");
+//		String mail = request.getParameter("mail");
+//		String pass = request.getParameter("pass");
 
-		NOL8Server nol8 = NOL8Server.getInstance();
+		out.println("<html>");
+		out.println("<head>");
 
-		Utilisateur u = nol8.getUser(mail, mdp);
-		if(u!=null){
-			request.getSession().setAttribute("mail", mail);
-			request.getSession().setAttribute("mdp", mdp);
-			out.print("true");
-		}
-		else out.println("false");
+		out.println("<title>Connexion</title>");
+		out.println("</head>");
+		out.println("<body bgcolor=\"white\">");
+		//out.println("<h1>"+mail+" "+pass+"</h1>");
+		out.println("<h1>WOOOOOOOOOO</h1>");
+		out.println("</body>");
+		out.println("</html>");
 		
+		
+		
+		
+		
+		
+//		NOL8Server nol8 = NOL8Server.getInstance();
+//
+//		Utilisateur u = nol8.getUser(mail, pass);
+//		if(u!=null){
+//			request.getSession().setAttribute("mail", mail);
+//			request.getSession().setAttribute("pass", pass);
+//			out.print("true");
+//		}
+//		else out.print("false");
 	}         
 }

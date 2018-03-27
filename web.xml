@@ -2,11 +2,11 @@
 
 <web-app>
 	<servlet>
-		<servlet-name>Connexion</servlet-name>
+		<servlet-name>Connexion2</servlet-name>
 		<servlet-class>services.Connexion</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Connexion</servlet-name>
+		<servlet-name>Connexion2</servlet-name>
 		<url-pattern>/connexion</url-pattern>
 	</servlet-mapping>
 </web-app>
